@@ -52,7 +52,7 @@
       if (is.null(p2n.args$pl))
         p2n.args$pl <- x
     }
-    grd.nb <- do.call("spdep::poly2nb", p2n.args)
+    grd.nb <- do.call(spdep::poly2nb, p2n.args)
     
     if (missing(n2m.args)) {
       n2m.args <- list(neighbours = grd.nb)
@@ -62,7 +62,7 @@
       if (is.null(n2m.args$style))
         n2m.args$style <- "B"
     }
-    grd.nb <- do.call("spdep::nb2mat", n2m.args)
+    grd.nb <- do.call(spdep::nb2mat, n2m.args)
     grd.nb <- grd.nb / sum(grd.nb)
     speffect <- .d.adjust(data, grd.nb)
   } 
