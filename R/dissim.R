@@ -46,8 +46,8 @@ dissim <- function(x, data, nb, adjust = FALSE, p2n.args, n2m.args,
       else if (verbose)
         message("failed to calculate D(adj)")
       
-      if (all(c("spgrass6", "rgdal") %in% userpkg)) {
-        tmp <- tryCatch(.use.spgrass6(x, data, wVECT.args, v2n.args, verbose),
+      if (all(c("rgrass", "rgdal") %in% userpkg)) {
+        tmp <- tryCatch(.use.rgrass(x, data, wVECT.args, v2n.args, verbose),
                         error = function(e) print(e))
         if (is.numeric(tmp[1]))
           out$dw <- out$d - tmp[1]

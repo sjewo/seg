@@ -1,5 +1,5 @@
 Package: seg
-Version: 0.6-0
+Version: 0.6-1
 Date: 2022-08-12
 Title: Measuring Spatial Segregation
 Author: Seong-Yun Hong <syhong@khu.ac.kr> and 
@@ -8,7 +8,7 @@ Author: Seong-Yun Hong <syhong@khu.ac.kr> and
 Maintainer: Seong-Yun Hong <syhong@khu.ac.kr>
 Depends: R (>= 4.0.0), methods, stats, sp, sf
 Imports: splancs
-Suggests: spdep, spgrass7, rgdal
+Suggests: spdep, rgrass, rgdal
 Description: Measuring spatial segregation. The methods implemented in this 
         package include White's P index (1983) <doi:10.1086/227768>, 
         Morrill's D(adj) (1991), Wong's D(w) and D(s) (1993) 

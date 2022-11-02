@@ -25,7 +25,7 @@ seg(data, nb)
 \details{
 \code{dissim} calculates the index of dissimilarity for \sQuote{data}. If \sQuote{data} is missing, it attempts to extract the data from \sQuote{x}. If \sQuote{x} is not given, or if it is not a valid \code{SpatialPolygonsDataFrame} object, the function stops with an error.
 
-When \sQuote{x} is given and \sQuote{adjust} is set to TRUE, the index is adjusted according to the suggestions of Morrill (1991) and Wong (1993). However, this automatic adjustment requires a number of packages to be installed on the user's system: \pkg{spdep} for Morrill's D(adj) and \pkg{spgrass6} and \pkg{rgdal} for Morrill's D(w) and D(s). Note that, for D(w) and D(s), GRASS commands should be accessible from within R.
+When \sQuote{x} is given and \sQuote{adjust} is set to TRUE, the index is adjusted according to the suggestions of Morrill (1991) and Wong (1993). However, this automatic adjustment requires a number of packages to be installed on the user's system: \pkg{spdep} for Morrill's D(adj) and \pkg{rgrass} and \pkg{rgdal} for Morrill's D(w) and D(s). Note that, for D(w) and D(s), GRASS commands should be accessible from within R.
 
 Alternatively, the index value can be adjusted using a user-specified weighting matrix \sQuote{nb}. \sQuote{nb} must be a square matrix (i.e., one that has the same number of rows and columns) but does not have to be symmetric. If \sQuote{nb} is not specified, the function calculates the traditional index of dissimilarity proposed by Duncan and Duncan (1955). 
 

@@ -74,13 +74,13 @@
   speffect
 }
 
-.use.spgrass6 <- function(x, data, wVECT.args, v2n.args, verbose) {
+.use.rgrass <- function(x, data, wVECT.args, v2n.args, verbose) {
   speffect <- rep(NA, 2)
-  if (requireNamespace("spgrass6", quietly = TRUE) & 
+  if (requireNamespace("rgrass", quietly = TRUE) & 
       requireNamespace("rgdal", quietly = TRUE) & 
       requireNamespace("spdep", quietly = TRUE)) {
     if (verbose) {
-      message("library 'spgrass6' and 'rgdal' appear to be available")
+      message("library 'rgrass' and 'rgdal' appear to be available")
       message("attempting to calculate Wong's D(w) and D(s)")
     }
     
@@ -88,14 +88,14 @@
       x <- SpatialPolygonsDataFrame(x, as.data.frame(data))
 
     if (missing(wVECT.args)) {
-      wVECT.args <- list(SDF = x, vname = "tmp")
+      wVECT.args <- list(x = x, vname = "tmp")
     } else {
-      if (is.null(wVECT.args$SDF))
-        wVECT.args$SDF <- x
+      if (is.null(wVECT.args$x))
+        wVECT.args$x <- x
       if (is.null(wVECT.args$vname))
         wVECT.args$vname <- "tmp"
     }
-    do.call(spgrass6::writeVECT6, wVECT.args)
+    do.call(rgrass::write_VECT, wVECT.args)
     
     if (missing(v2n.args)) {
       v2n.args <- list(vname = wVECT.args$vname)
@@ -103,7 +103,7 @@
       if (is.null(v2n.args$vname))
       v2n.args$vname <- wVECT.args$vname
     }
-    sl <- do.call(spgrass6::vect2neigh, v2n.args)
+    sl <- do.call(rgrass::vect2neigh, v2n.args)
     sl.mat <- spdep::listw2mat(spdep::sn2listw(sl))
     sl.mat <- sl.mat / sum(sl.mat)  
     speffect[1] <- .d.adjust(data, sl.mat)
@@ -121,7 +121,7 @@
     
     speffect[2] <- .d.adjust(data, sl.mat * PAR.mat)   
   } else if (verbose) {
-    message("failed to load 'spgrass6' or 'rgdal'")
+    message("failed to load 'rgrass' or 'rgdal'")
   }
   
   speffect
