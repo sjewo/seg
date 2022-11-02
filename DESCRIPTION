@@ -4,7 +4,7 @@ Date: 2022-08-12
 Title: Measuring Spatial Segregation
 Author: Seong-Yun Hong <syhong@khu.ac.kr> and 
   David O'Sullivan <david.osullivan@vuw.ac.nz>, with code contributions by 
-  Benjamin Jarvis and Changlock Choi
+  Benjamin Jarvis, Changlock Choi and Sebastian Jeworutzki
 Maintainer: Seong-Yun Hong <syhong@khu.ac.kr>
 Depends: R (>= 4.0.0), methods, stats, sp, sf
 Imports: splancs
