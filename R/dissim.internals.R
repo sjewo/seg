@@ -88,10 +88,10 @@
       x <- SpatialPolygonsDataFrame(x, as.data.frame(data))
 
     if (missing(wVECT.args)) {
-      wVECT.args <- list(x = x, vname = "tmp")
+      wVECT.args <- list(x = terra::vect(x), vname = "tmp")
     } else {
       if (is.null(wVECT.args$x))
-        wVECT.args$x <- x
+        wVECT.args$x <- terra::vect(x)
       if (is.null(wVECT.args$vname))
         wVECT.args$vname <- "tmp"
     }
